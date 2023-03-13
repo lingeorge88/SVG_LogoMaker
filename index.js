@@ -1,9 +1,9 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const path = require('path');
-const {Square, Circle, Triangle} = require('./lib/shapes');
-const {generateSVG} = require('./lib/makeSvg');
-const {makeShape} = require('./lib/makeShape');
+// const {Square, Circle, Triangle} = require('./lib/shapes');
+const {generateSVG, makeShape} = require('./lib/makeSvg');
+
 
 inquirer
     .prompt([
