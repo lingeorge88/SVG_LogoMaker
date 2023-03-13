@@ -1,9 +1,12 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const path = require('path');
-const shapes = requrie('./lib/shapes');
+const {Square, Circle, Triangle} = require('./lib/shapes');
+const {generateSVG} = require('./lib/makeSvg');
+const {makeShape} = require('./lib/makeShape');
 
-const userQuestions =[
+inquirer
+    .prompt([
     {
         type:"input",
         name:"text",
@@ -25,16 +28,17 @@ const userQuestions =[
         name:"logoColor",
         message: "Please enter a color keyword or hexadecimal number for your logo's color",
     },
-] 
+])
 
-function writeToFile(fileName, data) {
-    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
-}
+.then((data) =>{
+    const svgPath = './examples/logo.svg';
+    const newLogo = makeShape(data);
 
-function init() {
-    inquirer.prompt(userQuestions).then((responses) => {
-        console.log("Generated logo.svg");
-        writeToFile("./examples/logo.svg", shapes({ ...responses }));
-      });
-}
-init();
+    fs.writeFile(svgPath, generateSVG(newLogo), (err) => 
+    err ? console.error(err) : console.log('Generated logo.svg.'));
+})
+
+// .catch(err) => {
+//     console.error(err);}
+
+
