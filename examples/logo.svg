@@ -1,9 +1,9 @@
 
     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="300" height="200">
-      <polygon points="0 100, 25 ,0 80, 115" fill="black"/>
+      <circle cx="50" cy="50" r="50" fill="black"/>
       <text
-        x="33%"
-        y="60%"
+        x="50%"
+        y="50%"
         text-anchor="middle"
         fill="yellow"
         font-size="1.3rem" letter-spacing="2" dy=".3em"

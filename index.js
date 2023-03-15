@@ -1,7 +1,6 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const path = require('path');
-// const {Square, Circle, Triangle} = require('./lib/shapes');
 const {generateSVG, makeShape} = require('./lib/makeSvg');
 
 
@@ -20,7 +19,7 @@ inquirer
     {
         type: 'list',
         name: 'logoShape',
-        message: `Please choose logo shape`,
+        message: `Please choose logo shape (hit Enter to select)`,
         choices: ['triangle', 'circle', 'square'],
       },
     {
@@ -38,7 +37,6 @@ inquirer
     err ? console.error(err) : console.log('Generated logo.svg.'));
 })
 
-// .catch(err) => {
-//     console.error(err);}
+
 
 
